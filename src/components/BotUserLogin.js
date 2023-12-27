@@ -2,9 +2,11 @@ import { Alert, Button, Card, IconButton, InputAdornment, Snackbar, Stack, TextF
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import React, { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function BotUserLogin() {
 
+    const navigate = useNavigate();
     const [snackBar, setSnackBar] = useState({
         show: false,
         snackBarMessage: "",
@@ -56,7 +58,7 @@ export default function BotUserLogin() {
             console.log("loginDetails---",loginDetails);
             const response = await axios.post("http://localhost:3010/application/application-login-user",loginDetails);
             console.log(response,"----------");
-            alert("login succcessful");
+            navigate("bot-page");
             
         } catch (error) {
             console.log(error.response.data.message);

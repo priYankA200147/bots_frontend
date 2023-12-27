@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import BotUserLogin from './components/BotUserLogin';
 import { store } from './store';
+import BotPage from './components/BotPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +15,7 @@ root.render(
     <BrowserRouter>
   <Routes>
   <Route path="/" element={<BotUserLogin/>}/>
-  <Route path="/bots-login" element={<BotUserLogin/>}/>
+  <Route path="/bot-page" element={<BotPage/>}/>
   </Routes>
     </BrowserRouter>
   </Provider>
