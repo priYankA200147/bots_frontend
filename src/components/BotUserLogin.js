@@ -1,6 +1,7 @@
 import { Alert, Button, Card, IconButton, InputAdornment, Snackbar, Stack, TextField } from '@mui/material';
 import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import React, { useState } from 'react'
+import axios from 'axios';
 
 export default function BotUserLogin() {
 
@@ -11,13 +12,36 @@ export default function BotUserLogin() {
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const handleDetails = () => {
+    const [loginDetails, setLoginDetails] = useState({
+        user_email: "",
+        password: "",
+        app_id:"65896514a3f675cfcaf96740",
+    });
+
+    const handleDetails = (event) => {
+        const { name, value } = event.target;
+
+        switch (name) {
+            case "user_email":
+                {
+                    // dispatch(setUserDetails({ user_email: value, name: name }));
+                    setLoginDetails({ ...loginDetails, user_email: value });
+                }
+                break;
+
+            case "password":
+                // dispatch(setUserDetails({ password: value, name: name }));
+                setLoginDetails({ ...loginDetails, password: value });
+                break;
+
+            default:
+                break;
+        }
 
     };
 
     const handleClickShowPassword = () => {
         setShowPassword(!showPassword);
-
 
     };
 
@@ -27,8 +51,17 @@ export default function BotUserLogin() {
 
     };
 
-    const handleLoginOnClick = () => {
-
+    const handleLoginOnClick = async() => {
+        try {
+            console.log("loginDetails---",loginDetails);
+            const response = await axios.post("http://localhost:3010/application/application-login-user",loginDetails);
+            console.log(response,"----------");
+            alert("login succcessful");
+            
+        } catch (error) {
+            console.log(error.response.data.message);
+            alert(error.response.data.message);
+        }
     };
 
 
