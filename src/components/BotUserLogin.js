@@ -3,8 +3,11 @@ import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUnitDetails } from '../store/BotsSlice';
 
 export default function BotUserLogin() {
+    const dispatch= useDispatch();
 
     const navigate = useNavigate();
     const [snackBar, setSnackBar] = useState({
@@ -59,6 +62,7 @@ export default function BotUserLogin() {
             const response = await axios.post("http://localhost:5000/application/login",loginDetails);
             console.log(response,"----------");
             sessionStorage.setItem("accessToken", response.data.data.data.token);
+            dispatch(setUnitDetails(response.data.data.data._id));
             navigate("bot-page");
             
         } catch (error) {
