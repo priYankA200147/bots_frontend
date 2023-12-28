@@ -56,13 +56,14 @@ export default function BotUserLogin() {
     const handleLoginOnClick = async() => {
         try {
             console.log("loginDetails---",loginDetails);
-            const response = await axios.post("http://localhost:3010/application/application-login-user",loginDetails);
+            const response = await axios.post("http://localhost:5000/application/login",loginDetails);
             console.log(response,"----------");
+            sessionStorage.setItem("accessToken", response.data.data.data.token);
             navigate("bot-page");
             
         } catch (error) {
-            console.log(error.response.data.message);
-            alert(error.response.data.message);
+            console.log(error);
+            alert(error.response.data.message.message);
         }
     };
 
