@@ -79,7 +79,7 @@ export default function BotUserLogin() {
             <Card style={{ height: "auto", width: "21%", padding: "20px", boxShadow: "0px 9px 20px rgba(13, 38, 76, 0.19)", borderRadius: "18px" }}>
                 <div className="text-center m-1 font-weight-bold " style={{ fontSize: "22px", color: "#1e3a8a", fontFamily: "'Ubuntu', sans-serif" }}>
                     <div className="text-center" style={{ margin: "auto", width: "100%", padding: "4px" }}>
-                        Login
+                        Bot Login
                     </div>
                 </div>
 
