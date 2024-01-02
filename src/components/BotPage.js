@@ -20,7 +20,8 @@ export default function BotPage() {
     console.log("billingUnitUserDetails--------", billingUnitUserDetails);
 
     try {
-      const response = await axios.post("http://localhost:5000/application/billing", billingUnitUserDetails);
+      const response = await axios.post("http://localhost:5000/application/billing", billingUnitUserDetails, 
+      { headers: { Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`, } });
 
       if (response.status === 200) {
         alert("Billing Details ");
@@ -36,12 +37,12 @@ export default function BotPage() {
   };
 
   return (
-    <div style={{ width: "100%", textAlign: "center" }}>
+    <div style={{ width: "100%", textAlign: "center", fontWeight:"700"}}>
       Bots Application!
       <div>
         <IconButton>
           <Button onClick={handleButtonClick}>
-            Click Me
+            Click to simulate BOT execution
           </Button>
         </IconButton>
       </div>
