@@ -14,7 +14,7 @@ export default function BotPage() {
   const handleButtonClick = async () => {
 
     const billingUnitUserDetails = {
-      unit_id: state.unitDetails.unit_id,
+      unit_id: sessionStorage.getItem("unit_id"),
       type: "Execution",
     };
 
