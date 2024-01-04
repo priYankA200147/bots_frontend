@@ -12,10 +12,12 @@ import BotPage from './components/BotPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="bots">
   <Routes>
-  <Route path="/" element={<BotUserLogin/>}/>
-  <Route path="/bot-page" element={<BotPage/>}/>
+  {/* <Route path="/" element={<BotUserLogin/>}/> */}
+  <Route path="/" element={<BotPage/>}/>
+
+  {/* <Route path="/bot-page" element={<BotPage/>}/> */}
   </Routes>
     </BrowserRouter>
   </Provider>
