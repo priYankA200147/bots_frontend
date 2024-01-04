@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Logout } from "@mui/icons-material";
 import LogoutConfirmationModal from '../modal/LogoutConfirmationModal';
+import DashboardNavBar from './DashboardNavBar';
 
 
 export default function BotPage() {
@@ -14,7 +15,7 @@ export default function BotPage() {
 
     const billingUnitUserDetails = {
       unit_id: state.unitDetails.unit_id,
-      type: "execution",
+      type: "Execution",
     };
 
     console.log("billingUnitUserDetails--------", billingUnitUserDetails);
@@ -37,7 +38,9 @@ export default function BotPage() {
   };
 
   return (
-    <div style={{ width: "100%", textAlign: "center", fontWeight:"700"}}>
+    <>
+      <DashboardNavBar/>
+    <div className="mt-2" style={{ width: "100%", textAlign: "center" }}>
       Bots Application!
       <div>
         <IconButton>
@@ -47,13 +50,14 @@ export default function BotPage() {
         </IconButton>
       </div>
 
-      <div>
+      {/* <div>
         <IconButton onClick={() => { handelLogout() }}>
           <Logout />
         </IconButton>
       </div>
-      {logoutModal === true && <LogoutConfirmationModal setLogoutModal={setLogoutModal} />}
+      {logoutModal === true && <LogoutConfirmationModal setLogoutModal={setLogoutModal} />} */}
 
     </div>
+    </>
   );
 };

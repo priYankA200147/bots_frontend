@@ -13,10 +13,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter basename="bots">
-      <Routes>
-        <Route path="/" element={<BotUserLogin />} />
-        <Route path="/bot-page" element={<BotPage />} />
-      </Routes>
+  <Routes>
+  {/* <Route path="/" element={<BotUserLogin/>}/> */}
+  <Route path="/" element={<BotPage/>}/>
+
+  {/* <Route path="/bot-page" element={<BotPage/>}/> */}
+  </Routes>
     </BrowserRouter>
   </Provider>
 );

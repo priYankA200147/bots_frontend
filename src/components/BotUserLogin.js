@@ -112,9 +112,15 @@ export default function BotUserLogin() {
                     </Stack>
 
                     <div className="mt-4">
+                    <a
+        href=""
+        target="_blank"
+        rel="noreferrer"
+      >
                         <Button style={{ width: "90%", height: "28%" }} variant="contained" className="mb-3" onClick={handleLoginOnClick}>
                             LOGIN
                         </Button>
+      </a>
                     </div>
                 </div>
             </Card>
